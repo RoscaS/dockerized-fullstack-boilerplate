@@ -10,4 +10,3 @@ exec gunicorn app.wsgi \
     --log-file=/logs/gunicorn.log \
     --access-logfile=/logs/access.log \
     --reload
-    "$@"
