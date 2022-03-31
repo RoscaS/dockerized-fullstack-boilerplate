@@ -9,17 +9,30 @@
     $ docker-compose -f docker-compose.dev.yml up -d --build
     ```
 
-   * Test the backend: [http://localhost:8000/api](http://localhost:8000/api).
-   * Test the frontend: [http://localhost:3000](http://localhost:3000).
+   * Test the backend: [http://localhost:8000/api](http://localhost:8000/api)
+     * go to [/articles](http://localhost:8000/api/articles) and create a couple of articles 
+     * if databases issues arise:
+       * stop the container: `ctrl + c` 
+       * restart it: `docker-compose -f docker-compose.dev.yml up` 
+   * Test frontend connectivity: [http://localhost:3000](http://localhost:3000) and click on *Fetch data*'
 
 ## Run
-1. Run:
    ```sh
    $ docker-compose -f docker-compose.dev.yml up
    ```
-   Done.
+
+## Migrations
+1. Stop the container if it's running
+2. Setup locally a venv and install the backend requirements. From the *backend* folder run:
+   ```sh
+   $ python manage.py makemigrations
+   ```
+3. Build and run the project:
+   ```
+   $ docker-compose -f docker-compose.dev.yml up -d --build`
+   ```
+
 
 ## Usefull
 * logs: `docker-compose -f docker-compose.dev.yml logs -f`
-* spin down: `docker-compose -f docker-compose.dev.yml down`
     
