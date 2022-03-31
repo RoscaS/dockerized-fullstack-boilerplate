@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "docker": "npm run dev"
+    "docker": "npm i && npm run dev"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

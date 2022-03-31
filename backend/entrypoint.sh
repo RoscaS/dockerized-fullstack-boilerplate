@@ -2,7 +2,7 @@
 python manage.py migrate
 
 # Start Gunicorn processes
-echo Starting Gunicorn.
+echo Starting gunicorn.
 exec gunicorn app.wsgi \
     --bind 0.0.0.0:8000 \
     --workers 4 \
