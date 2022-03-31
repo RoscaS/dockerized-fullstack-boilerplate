@@ -1,5 +1,10 @@
 # Dockerized Django, Postgres and Nuxt local environment with auto reload on code change
 
+## Requirement
+
+* [docker](https://docs.docker.com/engine/install/ubuntu/)
+* [docker-compose](https://docs.docker.com/compose/install/)
+
 ## Build
 
 1. Rename *.env.sample* to *.env* in both *backend* and *frontend* folders and update environment variables if needed
