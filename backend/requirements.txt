@@ -1,0 +1,10 @@
+django<4.1
+psycopg2-binary<2.10
+gunicorn<20.2
+djangorestframework<3.14
+python-dotenv<0.21
+whitenoise<6.1
+
+django-extensions<3.2
+ipython<8.3
+django-cors-headers
