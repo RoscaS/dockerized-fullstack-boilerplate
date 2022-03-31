@@ -28,14 +28,6 @@ services:
     ports:
       - "3000:3000"
 
-  db:
-    container_name: db_service
-    image: postgres:13.0-alpine
-    volumes:
-      - ./db:/var/lib/postgresql/data/
-    env_file:
-      - ./backend/.env
-
   server:
     container_name: server_service
     image: node:14.18-stretch-slim
@@ -48,5 +40,15 @@ services:
     ports:
       - "4000:4000"
 
+  db:
+    container_name: db_service
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./backend/.env
+    restart: always
+
 volumes:
   postgres_data:
+    driver: local
