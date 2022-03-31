@@ -8,10 +8,10 @@
 ## Build
 
 1. Rename *.env.sample* to *.env* in both *backend* and *frontend* folders and update environment variables if needed
-2. [Optional] Update *docker-compose.dev.yml* to your linking
+2. [Optional] Update *docker-compose.dev.yml*
 3. Build the images and run the containers:
     ```sh
-    $ docker-compose -f docker-compose.dev.yml up -d --build
+    $ docker-compose -f docker-compose.dev.yml up
     ```
 
    * Test the backend: [http://localhost:8000/api](http://localhost:8000/api)
@@ -39,5 +39,8 @@
 
 
 ## Usefull
+* spin up: `docker-compose -f docker-compose.dev.yml up`
+* spin down: `docker-compose -f docker-compose.dev.yml down`
+* build and run: `docker-compose -f docker-compose.dev.yml up --build`
 * logs: `docker-compose -f docker-compose.dev.yml logs -f`
     
