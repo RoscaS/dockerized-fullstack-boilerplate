@@ -21,6 +21,8 @@
             * restart it: `docker-compose -f docker-compose.dev.yml up`
             * create a couple of articles
     * Test frontend connectivity: [http://localhost:3000](http://localhost:3000) and click on *Fetch data*'
+    * Open a text editor and update the content of the `<h1>` tag (line 5) inside *frontend/pages/index.vue`.
+        * => The page on your browser should be reloaded automatically.
 
 ## Run
    ```sh
