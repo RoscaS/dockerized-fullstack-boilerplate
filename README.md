@@ -14,12 +14,12 @@
     $ docker-compose -f docker-compose.dev.yml up
     ```
 
-   * Test the backend: [http://localhost:8000/api](http://localhost:8000/api)
-     * go to [/articles](http://localhost:8000/api/articles) and create a couple of articles 
-     * if databases issues arise:
-       * stop the container: `ctrl + c` 
-       * restart it: `docker-compose -f docker-compose.dev.yml up` 
-   * Test frontend connectivity: [http://localhost:3000](http://localhost:3000) and click on *Fetch data*'
+    * Test the backend: [http://localhost:8000/api](http://localhost:8000/api)
+        * go to [/articles](http://localhost:8000/api/articles) and create a couple of articles
+        * if databases issues arise:
+            * stop the container: `ctrl + c`
+            * restart it: `docker-compose -f docker-compose.dev.yml up`
+    * Test frontend connectivity: [http://localhost:3000](http://localhost:3000) and click on *Fetch data*'
 
 ## Run
    ```sh
@@ -27,20 +27,21 @@
    ```
 
 ## Migrations
-1. Stop the container if it's running
-2. Setup locally a venv and install the backend requirements. From the *backend* folder run:
-   ```sh
-   $ python manage.py makemigrations
-   ```
-3. Build and run the project:
-   ```
-   $ docker-compose -f docker-compose.dev.yml up -d --build`
-   ```
+1. Make sure the containers are running and you're at the root of the project
+2. Make the migrations
+    ```sh
+    $ docker-compose -f docker-compose.dev.yml exec backend python manage.py makemigrations
+    ```
+3. Either restart the containers, either run:
+    ```
+    $ docker-compose -f docker-compose.dev.yml exec backend python manage.py migrate
+    ```
 
 
-## Usefull
+## Useful
 * spin up: `docker-compose -f docker-compose.dev.yml up`
 * spin down: `docker-compose -f docker-compose.dev.yml down`
 * build and run: `docker-compose -f docker-compose.dev.yml up --build`
 * logs: `docker-compose -f docker-compose.dev.yml logs -f`
+* exec a command in a container: `docker-compose -f docker-compose.dev.yml exec <container-name> <command>`
     
