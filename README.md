@@ -19,6 +19,7 @@
         * if databases issues arise:
             * stop the container: `ctrl + c`
             * restart it: `docker-compose -f docker-compose.dev.yml up`
+            * create a couple of articles
     * Test frontend connectivity: [http://localhost:3000](http://localhost:3000) and click on *Fetch data*'
 
 ## Run
@@ -27,7 +28,7 @@
    ```
 
 ## Migrations
-1. Make sure the containers are running and you're at the root of the project
+1. Make sure the containers are running, and you're at the root of the project
 2. Make the migrations
     ```sh
     $ docker-compose -f docker-compose.dev.yml exec backend python manage.py makemigrations
