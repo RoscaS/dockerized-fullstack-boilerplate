@@ -77,6 +77,33 @@ TEMPLATES = [
     },
 ]
 
+
+# Logging
+# See https://docs.djangoproject.com/en/4.0/topics/logging/
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "colored_format": {
+            "()": "colorlog.ColoredFormatter",
+            "format": "%(log_color)s%(levelname)s%(reset)-8s%(message)s",
+        },
+    },
+    "handlers": {
+        "colored_console_info": {"level": "INFO", "class": "logging.StreamHandler", "formatter": "colored_format"},
+        "colored_console_debug": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "": {"level": "DEBUG", "handlers": ["colored_console_debug"]},
+        "gunicorn.access": {"handlers": ["colored_console_info"]},
+        "gunicorn.error": {"handlers": ["colored_console_info"]},
+    },
+}
+
+
 WSGI_APPLICATION = 'app.wsgi.application'
 
 

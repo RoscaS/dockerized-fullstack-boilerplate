@@ -4,6 +4,7 @@ services:
   backend:
     container_name: backend_service
     build: backend
+    restart: always
     volumes:
       - ./backend:/usr/src/app/
       - ./backend:/code
@@ -14,11 +15,13 @@ services:
     ports:
       - "8000:8000"
 
+
   frontend:
     container_name: frontend_service
     image: node:14.18-stretch-slim
     command: npm run docker
     working_dir: /usr/src/app
+    restart: always
     volumes:
       - ./frontend:/usr/src/app
     env_file:
@@ -33,6 +36,7 @@ services:
     image: node:14.18-stretch-slim
     command: npm run docker
     working_dir: /usr/src/app
+    restart: always
     volumes:
       - ./server:/usr/src/app
     depends_on:
@@ -43,11 +47,11 @@ services:
   db:
     container_name: db_service
     image: postgres:13.0-alpine
+    restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./backend/.env
-    restart: always
 
 volumes:
   postgres_data:

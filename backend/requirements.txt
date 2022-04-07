@@ -4,6 +4,7 @@ gunicorn<20.2
 djangorestframework<3.14
 python-dotenv<0.21
 whitenoise<6.1
+colorlog<6.7
 
 django-extensions<3.2
 ipython<8.3

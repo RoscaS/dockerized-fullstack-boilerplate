@@ -8,5 +8,7 @@ exec gunicorn app.wsgi \
     --workers 4 \
     --log-level=info \
     --log-file=/logs/gunicorn.log \
-    --access-logfile=/logs/access.log \
+    --access-logfile=- \
+    --access-logformat='%(t)s %(s)s "%(r)s"' \
     --reload
+"$@"
